@@ -1,7 +1,6 @@
-import palavras from "./palavras";
-import Jogo from "./Jogo";
-import Letras from "./Letras";
-import Chute from "./Chute";
+import Jogo from "./Components/Jogo";
+import Letras from "./Components/Letras";
+import Chute from "./Components/Chute";
 
 export default function App() {
   return (
