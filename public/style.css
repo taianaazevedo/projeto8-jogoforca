@@ -2,33 +2,38 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.initial-state {
+.estado-inicial {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
     height: 400px;
 }
 
-.image-forca {
+.imagem-forca {
     width: 300px;
     height: 400px;
 }
 
-.image-forca img {
+.imagem-forca img {
     width: 300px;
     height: 365px;
     margin-top: 20px
 }
 
-.button {
+.botao {
     width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
-.button div{
+.botao div{
     font-size:30px;
     margin-top: 150px;
 }
 
-.button button {
+.botao button {
     width: 150px;
     height: 50px;
     margin-top: 50px;
@@ -38,39 +43,53 @@ body {
     font-size: 15px;
     font-weight: 500;
     border-style: none;
+    cursor: pointer;
 }
 
-.alphabet {
+.botao button:disabled{
+    background-color: #798A9F;
+    color:#618096;
+}
+.palavra-sorteada{
+    letter-spacing: 6px;
+}
+
+.alfabeto {
     width: 600px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.alphabet button {
+.alfabeto button {
     width: 40px;
     height: 40px;
     margin-left: 5px;
     margin-top: 5px;
-    background-color: #9FAAB5;
-    border-radius: 3px;
+    background-color: #E1ECF4;
+    border-radius: 5px;
     border: 1px solid #CCCCCC;
-    color: #798A9F;
+    color: #7AA7C7;
     font-weight: 700;
+    cursor: pointer;
+}
+.alfabeto button:disabled{
+    background-color: #798A9F;
+    color:#618096;
 }
 
-.guess-word {
+.chutar-palavra {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.guess-word p {
+.chutar-palavra p {
     margin-right: 10px;
 }
 
-.guess-word button {
+.chutar-palavra button {
     margin-left: 10px;
     color: #3C76A1;
     background-color: #E1ECF4;
@@ -78,9 +97,13 @@ body {
     height: 40px;
     border-radius: 14px;
     border: 1px solid #CCCCCC;
+    cursor: pointer;
 }
-
-.guess-word input {
+.chutar-palavra button:disabled{
+    background-color: #798A9F;
+    color:#618096;
+}
+.chutar-palavra input {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     border: 1px solid #CCCCCC;

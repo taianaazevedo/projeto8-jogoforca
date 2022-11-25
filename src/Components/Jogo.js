@@ -1,32 +1,50 @@
-import { useState } from "react";
-import palavras from "./palavras";
+import palavras from "./palavras.js";
 
-export default function Jogo() {
-
-    const palavra = Math.floor(Math.random() * palavras.length);
-    const [word, setWord] = useState("");
+export default function Jogo({ palavra,
+    setPalavra, imagem, setImagem,
+    iniciar, setIniciar,
+    erros, setErros, cor, setCor, setTeclado }) {
     
 
+
+    // //função que mostra a palavra sorteada em forma de underlines
     function start() {
-        const resposta = palavras[palavra];
-        const palavraEscolhida = resposta.split("");
-        console.log(palavraEscolhida);
-        for(let i = 0; i < palavraEscolhida.length; i++){
-            palavraEscolhida[i] = "_  " 
+        const palavra = Math.floor(Math.random() * palavras.length);
+        let palavraAleatoria = palavras[palavra];
+        let palavraExibida = palavraAleatoria.split("");
+
+        console.log(palavraExibida)
+        for (let i = 0; i < palavraExibida.length; i++) {
+            palavraExibida[i] = "_";
         }
-        setWord(palavraEscolhida);
-        
+        setPalavra(palavraExibida);
+        setIniciar(true);
+        setTeclado(false);
+
     }
+
+    //     }
+    //     const resposta = palavras[palavra]
+    //     const palavraAleatoria = resposta.split("");
+
+    //     for (let i = 0; i < palavraAleatoria.length; i++) {
+    //         palavraAleatoria[i] = "_  "
+    //     }
+    //     setWord(palavraAleatoria);
+    //     setStartGame(true);
+    //     setAlphabet(false);
+
+    // }
 
 
     return (
-        <div class="initial-state">
-            <div class="image-forca">
-                <img src="./assets/forca0.png" />
+        <div className="estado-inicial">
+            <div className="imagem-forca">
+                <img src={imagem} />
             </div>
-            <div class="button">
-                <button onClick={start}>Escolher palavra</button>
-                <div class="word">{word}</div>
+            <div className="botao">
+                <button disabled={iniciar} onClick={start}>Escolher palavra</button>
+                <div className="palavra-sorteada">{palavra}</div>
             </div>
 
         </div>
