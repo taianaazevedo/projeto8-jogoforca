@@ -24,20 +24,21 @@ export default function App() {
   }
 
 
-
   let palavra = palavras[sorteiaPalavra()];
-  let listaLetra = Array.from(palavra);
-  let palavraEmUnderline = Array.from(palavra).map((l) => l = "_");
+  let palavraCaracteresEspeciais = palavra.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+  let listaLetra = Array.from(palavraCaracteresEspeciais);
+  let palavraEmUnderline = Array.from(palavraCaracteresEspeciais).map((l) => l = "_");
 
   
   function comecaJogo() {        
     setStatusJogo(false);    
-    setIniciarJogo(true);
     setArrayPalavra(listaLetra);
     setPalavraNaTela(palavraEmUnderline);
     setArrayLetra([]);
     setErro(0);
     setCorDaPalavra("black");
+    setImagem("assets/forca0.png");
+    setInputChute("")
    
   }
 
@@ -81,16 +82,18 @@ export default function App() {
     if(arrayPalavra.join('') === inputChute){
       setPalavraNaTela(arrayPalavra.join(''))      
       setCorDaPalavra("green");
-      setStatusJogo(true)
-      setIniciarJogo(false);      
+      setStatusJogo(true);   
+      setInputChute("");              
     } else {
       setPalavraNaTela(arrayPalavra.join(''))
       setCorDaPalavra("red");
       setImagem("assets/forca6.png");
-      setStatusJogo(true)
-      setIniciarJogo(false);
+      setStatusJogo(true);
+      setInputChute("");        
     }
+    
   }
+  
 
   return (
     <>
