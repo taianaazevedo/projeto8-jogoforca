@@ -25,9 +25,8 @@ export default function App() {
 
 
   let palavra = palavras[sorteiaPalavra()];
-  let palavraCaracteresEspeciais = palavra.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-  let listaLetra = Array.from(palavraCaracteresEspeciais);
-  let palavraEmUnderline = Array.from(palavraCaracteresEspeciais).map((l) => l = "_");
+  let listaLetra = Array.from(palavra);
+  let palavraEmUnderline = Array.from(palavra).map((l) => l = "_");
 
   
   function comecaJogo() {        
@@ -38,8 +37,7 @@ export default function App() {
     setErro(0);
     setCorDaPalavra("black");
     setImagem("assets/forca0.png");
-    setInputChute("")
-   
+    setInputChute("");   
   }
 
   function clickLetra(letra) {
@@ -73,7 +71,7 @@ export default function App() {
         setCorDaPalavra("red");
         setStatusJogo(true);
         setChutar(true);
-        setInputChute(true);
+        setInputChute("");
       }
     }
   }
