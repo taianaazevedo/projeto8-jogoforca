@@ -104,6 +104,7 @@ export default function App() {
         botaoIniciar={iniciarJogo}
         cor={corDaPalavra}
         erro={erro}
+        palavra={palavra}
       />
       <Letras
         arrayLetra={arrayLetra}
