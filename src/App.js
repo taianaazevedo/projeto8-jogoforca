@@ -8,28 +8,28 @@ import palavras from "./Components/palavras.js";
 
 export default function App() {
   const [erro, setErro] = useState(0);
-  const [chutar, setChutar] = useState(true); //botão de chutar, que inicia desabilitado, e só habilita ao clicar em "escolher palavra";
-  const [inputChute, setInputChute] = useState(""); //input onde digita o chute, que inicia desabilitado, e só habilita ao clicar em "escolher palavra";
-  const [palavraNaTela, setPalavraNaTela] = useState(""); //palavra que será colocada na tela, por meio de sorteio;
-  const [iniciarJogo, setIniciarJogo] = useState(false); //botão de iniciar o jogo, inicia habilitado, e ao clicar nele, ele desabilita;
-  const [corDaPalavra, setCorDaPalavra] = useState(""); //cor que irá mudar se acertar ou errar a palavra;
-  const [arrayPalavra, setArrayPalavra] = useState([]); //array onde estarão cada letra da palavra sorteada;
-  const [arrayLetra, setArrayLetra] = useState([]); //array onde estarão cada letra clicada; 
+  const [chutar, setChutar] = useState(true); 
+  const [inputChute, setInputChute] = useState(""); 
+  const [palavraNaTela, setPalavraNaTela] = useState(""); 
+  const [iniciarJogo, setIniciarJogo] = useState(false); 
+  const [corDaPalavra, setCorDaPalavra] = useState(""); 
+  const [arrayPalavra, setArrayPalavra] = useState([]); 
+  const [arrayLetra, setArrayLetra] = useState([]); 
   const [statusJogo, setStatusJogo] = useState(true);
   const [imagem, setImagem] = useState("assets/forca0.png");
 
-  /// função que sorteia a palavra ///
+  
   function sorteiaPalavra() {
     return Math.floor(Math.random() * palavras.length);
   }
 
-  /// variáveis que guardam a palavra sorteada, a palavra em forma de array e a palavra em forma de underline ///
+
 
   let palavra = palavras[sorteiaPalavra()];
   let listaLetra = Array.from(palavra);
   let palavraEmUnderline = Array.from(palavra).map((l) => l = "_");
 
-  /// função que inicia o jogo, habilitando o teclado, o input e o botão de chutar, desabilitando o de "escolher palavra", mostra a palavra na tela e inicia a contagem de erro ///
+  
   function comecaJogo() {        
     setStatusJogo(false);    
     setIniciarJogo(true);
@@ -38,14 +38,13 @@ export default function App() {
     setArrayLetra([]);
     setErro(0);
     setCorDaPalavra("black");
-    console.log(palavraEmUnderline);
-    console.log(listaLetra);
+   
   }
 
   function clickLetra(letra) {
     const novoArray = [...arrayLetra, letra];
     setArrayLetra(novoArray);
-    // console.log(novoArray);
+    
     const palavraCriada = palavraNaTela.map((e, i) => (arrayPalavra[i] === letra) ? e = letra : e);
     if (arrayPalavra.includes(letra)) {      
       setPalavraNaTela(palavraCriada);
@@ -91,7 +90,6 @@ export default function App() {
       setStatusJogo(true)
       setIniciarJogo(false);
     }
-    console.log(inputChute)
   }
 
   return (

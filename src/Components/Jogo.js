@@ -15,7 +15,7 @@ export default function Jogo({ imagem, iniciar, palavraNaTela, botaoIniciar, cor
                     Escolher palavra
                 </button>
                 <div
-                    data-test={palavraNaTela}
+                    data-test="word"
                     data-answer={palavra}
                     className="palavra-sorteada"
                     style={{ color: cor }}>
