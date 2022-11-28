@@ -77,7 +77,7 @@ export default function App() {
   }
 
   function chute(){
-    if(arrayPalavra.join('') === inputChute){
+    if(arrayPalavra.join('') === inputChute.toLowerCase()){
       setPalavraNaTela(arrayPalavra.join(''))      
       setCorDaPalavra("green");
       setStatusJogo(true);   
